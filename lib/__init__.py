@@ -1,3 +1,5 @@
+import string
+
 def is_balanced(expression):
     stack = []
     mapping = {')': '(', '}': '{', ']': '['}
@@ -21,4 +23,18 @@ def remove_duplicates(sequence):
             seen.add(item)
 
     return result
+
+def word_frequency(sentence):
+    frequency = {}
+    translator = str.maketrans('', '', string.punctuation)
+
+    words = sentence.translate(translator).lower().split()
+
+    for word in words:
+        if word in frequency:
+            frequency[word] += 1
+        else:
+            frequency[word] = 1
+
+    return frequency
 
